@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Library</title>
+</head>
+<body>
+
+  <!--Navbar Section-->
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <h1 class="navbar__title">Library</h1>
+      <img src="assets/book.png" alt="Book Logo" width="50" height="50">
+    </div>
+    <div class="navbar__user-info">
+      <h2 class="navbar__user-name">User's Library</h2>
+      <img class="navbar__user-avatar" src="assets/profile.jpg" alt="Profile Picture" width="50" height="50">
+    </div>
+  </nav>
+
+  <!--Library Section-->
+  <section class="library">
+    <header class="library__header">
+      <h1 class="library__title">My Books</h1>
+    </header>
+    <hr>
+    <div class="library__actions">
+      <button class="library__add-button">Add Books +</button>
+    </div>
+    <div class="library__book-list">
+
+      <!--Book Card-->
+      <div class="book-card">
+        <div class="book-card__image"></div>
+        <div class="book-card__bottom-section">
+          <div class="book-card__info">
+            <h3 class="book-card__title">Artaud Anthologyefefefe</h3>
+            <p class="book-card__author">Antonin Artaud</p>
+          </div>
+          <div class="book-card__actions">
+            <button class="book-card__read-button">Read</button>
+            <input type="image" src="assets/trash-solid.svg" alt="Delete" class="book-card__delete-button" width="25" height="25">
+          </div>
+        </div>
+      </div>
+
+      <!--Book Card 2-->
+      <div class="book-card">
+        <div class="book-card__image"></div>
+        <div class="book-card__bottom-section">
+          <div class="book-card__info">
+            <h3 class="book-card__title">Artaud Anthology</h3>
+            <p class="book-card__author">Antonin Artaud</p>
+          </div>
+          <div class="book-card__actions">
+            <button class="book-card__read-button">Read</button>
+            <input type="image" src="assets/trash-solid.svg" alt="Delete" class="book-card__delete-button" width="25" height="25">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

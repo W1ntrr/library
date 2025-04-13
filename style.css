@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+  --clr-light-blue: #93B5FF;
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 10rem;
+}
+
+.navbar__logo{
+  display: flex;
+  gap: 20px;
+}
+
+.navbar__title{
+  font-weight: 900;
+  font-size: 2.5em;
+}
+
+.navbar__user-info{
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+
+.navbar__user-avatar{
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.library__title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.library__add-button,
+.book-card__read-button{
+  background-color: var(--clr-light-blue);
+  border: 1px solid transparent;
+  color:white;
+  padding:0.5em 1em;
+  border-radius: 0.6em;
+  font-size: 1.35em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all ease 0.25s;
+}
+
+.library__add-button{
+  margin: 1.5em;
+}
+
+.library__add-button:hover,
+.book-card__read-button:hover{
+  background-color: #5e91ff;
+}
+
+.library__book-list{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  margin: 1em 2em;
+}
+
+.book-card{
+  height: 22rem;
+  width: 18rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.267);
+  transition: all ease 0.25s;
+}
+
+.book-card:hover{
+  scale: 1.05;
+}
+
+.book-card__image{
+  background-color: gray;
+  height: 50%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.book-card__title,
+.book-card__author{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.book-card__title{
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.book-card__author{
+  color:gray;
+  margin-bottom:2.6rem;
+}
+
+.book-card__bottom-section{
+  margin: 1em;
+}
+
+.book-card__actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-card__read-button.selected{
+  background-color: white;
+  border: 1px solid var(--clr-light-blue);
+  color:var(--clr-light-blue);
+}
