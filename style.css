@@ -91,10 +91,11 @@ hr{
 .library__book-list{
   display: grid;
   grid-template-columns: repeat(5,1fr);
+  gap: 50px;
 }
 
 .book-card{
-  height: 28rem;
+  height: 31rem;
   width: 20rem;
   border-radius: 1rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.267);
@@ -128,8 +129,12 @@ hr{
 
 .book-card__author{
   color:var(--clr-light-gray-blue);
-  height: 70px;
   margin: 1.2rem 0;
+}
+
+.book-card__pages{
+  height:70px;
+  color:var(--clr-light-gray-blue);
 }
 
 .book-card__details{
@@ -146,6 +151,11 @@ hr{
   background-color: white;
   border: 1px solid var(--clr-light-blue);
   color:var(--clr-light-blue);
+}
+
+.book-card__delete-button{
+  width:25px;
+  height:25px;
 }
 
 .book-card__delete-button:hover{

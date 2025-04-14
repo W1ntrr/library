@@ -32,22 +32,6 @@
         <button class="library__add-button">Add Books +</button>
       </div>
       <div class="library__book-list">
-
-        <!--Book Card-->
-        <div class="book-card">
-          <div class="book-card__image"></div>
-          <div class="book-card__details">
-            <div class="book-card__info">
-              <h2 class="book-card__title">Do Androids Dream of Electric Sheep?</h2>
-              <h3 class="book-card__author">Philip K. Dick</h3>
-            </div>
-            <div class="book-card__actions">
-              <button class="book-card__read-button">Read</button>
-              <input type="image" src="assets/trash-solid.svg" alt="Delete" class="book-card__delete-button" width="25" height="25">
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -75,11 +59,11 @@
           <p class="form-text">How long is your book in pages?</p>
         </div>
         <div class="readStatusField">
-          <input type="checkbox" name="bookRead" id="bookRead">
-          <label for="bookRead">Read</label>
+          <input type="checkbox" name="book-read" id="book-read">
+          <label for="book-read">Read</label>
         </div>
-        <div class="dialog-submit">
-          <button type="submit" class="add-book__submit">Submit</button>
+        <div class="modal-submit">
+          <input type="submit" class="add-book__submit" value="Submit">
         </div>
       </form>
     </dialog>
