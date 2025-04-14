@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 :root{
   --clr-light-blue: #93B5FF;
+  --clr-dark-bg: #12181b;
+  --clr-panel-bg: #2a2e35;
+  --clr-light-gray-blue: #b2becd;
 }
 
 *{
@@ -11,15 +14,27 @@
 }
 
 body{
-  font-family: "Inter", sans-serif;
-  height: 100vh;
+  font-family: "Sofia Sans", sans-serif;
+  min-height: 100vh;
+  background:linear-gradient(176deg, var(--clr-dark-bg),var(--clr-panel-bg));
+  color:white;
+}
+
+hr{
+  border: 1px solid rgba(255, 255, 255, 0.041);
+}
+
+.container{
+  margin: 0 auto;
+  max-width: 1900px;
+  width: 100%;
 }
 
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4rem 10rem;
+  padding: 3rem 0;
 }
 
 .navbar__logo{
@@ -65,7 +80,7 @@ body{
 }
 
 .library__add-button{
-  margin: 1.5em;
+  margin: 3rem 0 ;
 }
 
 .library__add-button:hover,
@@ -76,15 +91,16 @@ body{
 .library__book-list{
   display: grid;
   grid-template-columns: repeat(5,1fr);
-  margin: 1em 2em;
 }
 
 .book-card{
-  height: 22rem;
-  width: 18rem;
+  height: 28rem;
+  width: 20rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.267);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.267);
   transition: all ease 0.25s;
+  background-color: var(--clr-panel-bg);
+  cursor: pointer;
 }
 
 .book-card:hover{
@@ -111,12 +127,13 @@ body{
 }
 
 .book-card__author{
-  color:gray;
-  margin-bottom:2.6rem;
+  color:var(--clr-light-gray-blue);
+  height: 70px;
+  margin: 1.2rem 0;
 }
 
-.book-card__bottom-section{
-  margin: 1em;
+.book-card__details{
+  padding:1.2rem;
 }
 
 .book-card__actions{
@@ -129,4 +146,19 @@ body{
   background-color: white;
   border: 1px solid var(--clr-light-blue);
   color:var(--clr-light-blue);
+}
+
+.book-card__delete-button:hover{
+  filter: invert(20%) sepia(100%) saturate(700%) hue-rotate(-50deg) brightness(100%) contrast(100%);
+}
+
+.add-book{
+  inset: 0.5rem;
+  margin:auto;
+  padding: 1rem;
+}
+
+.modal-header{
+  display: flex;
+  justify-content: space-between;
 }

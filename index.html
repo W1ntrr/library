@@ -9,61 +9,82 @@
 </head>
 <body>
 
-  <!--Navbar Section-->
-  <nav class="navbar">
-    <div class="navbar__logo">
-      <h1 class="navbar__title">Library</h1>
-      <img src="assets/book.png" alt="Book Logo" width="50" height="50">
-    </div>
-    <div class="navbar__user-info">
-      <h2 class="navbar__user-name">User's Library</h2>
-      <img class="navbar__user-avatar" src="assets/profile.jpg" alt="Profile Picture" width="50" height="50">
-    </div>
-  </nav>
+  <div class="container">
+    <!--Navbar Section-->
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <h1 class="navbar__title">Library</h1>
+        <img src="assets/book.png" alt="Book Logo" width="50" height="50">
+      </div>
+      <div class="navbar__user-info">
+        <h2 class="navbar__user-name">User's Library</h2>
+        <img class="navbar__user-avatar" src="assets/profile.jpg" alt="Profile Picture" width="50" height="50">
+      </div>
+    </nav>
 
-  <!--Library Section-->
-  <section class="library">
-    <header class="library__header">
-      <h1 class="library__title">My Books</h1>
-    </header>
-    <hr>
-    <div class="library__actions">
-      <button class="library__add-button">Add Books +</button>
-    </div>
-    <div class="library__book-list">
+    <!--Library Section-->
+    <section class="library">
+      <header class="library__header">
+        <h1 class="library__title">My Books</h1>
+      </header>
+      <hr>
+      <div class="library__actions">
+        <button class="library__add-button">Add Books +</button>
+      </div>
+      <div class="library__book-list">
 
-      <!--Book Card-->
-      <div class="book-card">
-        <div class="book-card__image"></div>
-        <div class="book-card__bottom-section">
-          <div class="book-card__info">
-            <h3 class="book-card__title">Artaud Anthologyefefefe</h3>
-            <p class="book-card__author">Antonin Artaud</p>
-          </div>
-          <div class="book-card__actions">
-            <button class="book-card__read-button">Read</button>
-            <input type="image" src="assets/trash-solid.svg" alt="Delete" class="book-card__delete-button" width="25" height="25">
+        <!--Book Card-->
+        <div class="book-card">
+          <div class="book-card__image"></div>
+          <div class="book-card__details">
+            <div class="book-card__info">
+              <h2 class="book-card__title">Do Androids Dream of Electric Sheep?</h2>
+              <h3 class="book-card__author">Philip K. Dick</h3>
+            </div>
+            <div class="book-card__actions">
+              <button class="book-card__read-button">Read</button>
+              <input type="image" src="assets/trash-solid.svg" alt="Delete" class="book-card__delete-button" width="25" height="25">
+            </div>
           </div>
         </div>
-      </div>
 
-      <!--Book Card 2-->
-      <div class="book-card">
-        <div class="book-card__image"></div>
-        <div class="book-card__bottom-section">
-          <div class="book-card__info">
-            <h3 class="book-card__title">Artaud Anthology</h3>
-            <p class="book-card__author">Antonin Artaud</p>
-          </div>
-          <div class="book-card__actions">
-            <button class="book-card__read-button">Read</button>
-            <input type="image" src="assets/trash-solid.svg" alt="Delete" class="book-card__delete-button" width="25" height="25">
-          </div>
+      </div>
+    </section>
+
+    <!--Add Book Modal-->
+    <dialog id="addBookModal" class="add-book">
+      <div class="modal-header">
+        <h2>Add New Book</h2>
+        <span class="close-form">X</span>
+      </div>
+      <hr>
+      <form class="bookForm">
+        <div class="titleField">
+          <label for="book-title">Title</label>
+          <input type="text" name="book-title" id="book-title" placeholder="Great Gatsby" required>
+          <p class="form-text">What is the title of your book?</p>
         </div>
-      </div>
+        <div class="authorField">
+          <label for="book-author">Author</label>
+          <input type="text" name="book-author" id="book-author" placeholder="F. Scott Fitzgerald" required>
+          <p class="form-text">Who is the author of your book?</p>
+        </div>
+        <div class="pagesField">
+          <label for="book-pages">Pages</label>
+          <input type="number" name="book-pages" id="book-pages" placeholder="208" required>
+          <p class="form-text">How long is your book in pages?</p>
+        </div>
+        <div class="readStatusField">
+          <input type="checkbox" name="bookRead" id="bookRead">
+          <label for="bookRead">Read</label>
+        </div>
+        <div class="dialog-submit">
+          <button type="submit" class="add-book__submit">Submit</button>
+        </div>
+      </form>
+    </dialog>
 
-    </div>
-  </section>
+  </div>
 
   <script src="script.js"></script>
 </body>

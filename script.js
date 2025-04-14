@@ -1,17 +1,7 @@
-const readButtons = document.querySelectorAll('.book-card__read-button');
-
-readButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const isSelected = button.classList.contains('selected');
-    if(isSelected){
-      button.classList.remove('selected');
-      button.innerHTML = "Read";
-    } else {
-      button.classList.add('selected');
-      button.innerHTML = "Not Read";
-    }
-  })
-})
+const readButtons = document.querySelector('.book-card__read-button');
+const modal = document.getElementById('addBookModal');
+const addButton = document.querySelector('.library__add-button')
+const closeForm = document.querySelector('.close-form');
 
 // stores newly created book objects
 const myLibrary = [];
@@ -24,6 +14,38 @@ function Book(title,author,pages,read){
   this.uuid = crypto.randomUUID();
 }
 
-function addBookToLibrary(){
-  // take pararms, create a book there store it in the array
+Book.prototype.toggleReadStatus = function(){
+  this.read = !this.read;
 }
+
+function addBookToLibrary(title,author,pages,read){
+  const newBook = new Book(title,author,pages,read);
+  myLibrary.push(newBook);
+  return newBook;
+}
+
+function toggleBookReadStatus(uuid){
+  const book = myLibrary.find((book) => book.uuid === uuid);
+  if(book){
+    book.toggleReadStatus();
+  }
+}
+
+readButtons.addEventListener('click',()=>{
+  
+})
+
+addButton.addEventListener('click',()=>{
+  modal.showModal();
+})
+
+closeForm.addEventListener('click',()=>{
+  modal.close();
+})
+
+const newBook = addBookToLibrary('Great Gatsby', 'Scitzer', 123, false);
+
+console.log(myLibrary[0]);
+toggleBookReadStatus(newBook.uuid);
+console.log(myLibrary[0]);
+
