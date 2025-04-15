@@ -41,29 +41,32 @@
         <h2>Add New Book</h2>
         <span class="close-form">X</span>
       </div>
-      <hr>
+      <hr class="form-line">
       <form class="bookForm">
-        <div class="titleField">
-          <label for="book-title">Title</label>
-          <input type="text" name="book-title" id="book-title" placeholder="Great Gatsby" required>
-          <p class="form-text">What is the title of your book?</p>
-        </div>
-        <div class="authorField">
-          <label for="book-author">Author</label>
-          <input type="text" name="book-author" id="book-author" placeholder="F. Scott Fitzgerald" required>
-          <p class="form-text">Who is the author of your book?</p>
-        </div>
-        <div class="pagesField">
-          <label for="book-pages">Pages</label>
-          <input type="number" name="book-pages" id="book-pages" placeholder="208" required>
-          <p class="form-text">How long is your book in pages?</p>
-        </div>
-        <div class="readStatusField">
-          <input type="checkbox" name="book-read" id="book-read">
-          <label for="book-read">Read</label>
-        </div>
-        <div class="modal-submit">
-          <input type="submit" class="add-book__submit" value="Submit">
+        <div class="form-group">
+          <div class="titleField field">
+            <label for="book-title">Title</label><br>
+            <input type="text" name="book-title" id="book-title" placeholder="Ex: Great Gatsby" required>
+            <p class="form-text">Please enter the title of the book</p>
+          </div>
+          <div class="authorField field">
+            <label for="book-author">Author</label><br>
+            <input type="text" name="book-author" id="book-author" placeholder="Ex: F. Scott Fitzgerald" required>
+            <p class="form-text">Who wrote this book?</p>
+          </div>
+          <div class="pagesField field">
+            <label for="book-pages">Pages</label><br>
+            <input type="number" name="book-pages" id="book-pages" placeholder="Ex: 208" required>
+            <p class="form-text">How many pages are in this book?</p>
+          </div>
+          <div class="readStatusField">
+            <input type="checkbox" name="book-read" id="book-read">
+            <label for="book-read">Read</label>
+          </div>
+          <hr class="form-line">
+          <div class="modal-submit">
+            <input type="submit" class="add-book__submit" value="Submit">
+          </div>
         </div>
       </form>
     </dialog>

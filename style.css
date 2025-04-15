@@ -5,6 +5,7 @@
   --clr-dark-bg: #12181b;
   --clr-panel-bg: #2a2e35;
   --clr-light-gray-blue: #b2becd;
+  --clr-light-gray: #ced4da;
 }
 
 *{
@@ -25,16 +26,15 @@ hr{
 }
 
 .container{
-  margin: 0 auto;
   max-width: 1900px;
-  width: 100%;
+  margin: auto;
+  padding: 7rem 8rem;
 }
 
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 0;
 }
 
 .navbar__logo{
@@ -51,11 +51,11 @@ hr{
   display: flex;
   align-items: center;
   gap:10px;
+  cursor: pointer;
 }
 
 .navbar__user-avatar{
   border-radius: 2rem;
-  cursor: pointer;
 }
 
 .library__title{
@@ -166,9 +166,105 @@ hr{
   inset: 0.5rem;
   margin:auto;
   padding: 1rem;
+  width:500px;
+  border-radius: 0.5rem;
+  border:none;
 }
 
 .modal-header{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.close-form{
+  padding:5px 7px;
+  align-items: center;
+}
+
+.close-form:hover{
+  cursor: pointer;
+  background-color: red;
+  color:white;
+  padding:5px 7px;
+  border-radius: 0.2em;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+
+.field > p{
+  color:gray;
+}
+
+.field > input{
+  padding:0.5em 1em;
+  font-size: 1rem;
+  margin: 0.5em 0;
+  border-radius: 0.2em;
+  border: 1px solid var(--clr-light-gray);
+  width:100%;
+}
+
+input[type="checkbox"]{
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid var(--clr-light-gray);
+  height:1em;
+  width:1em;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 3px;
+  position: relative;
+}
+
+input[type="checkbox"]:checked::after{
+  content:"";
+  position: absolute;
+  left:0.45em;
+  top:0.15em;
+  width:0.25em;
+  height:0.6em;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked{
+  background-color: var(--clr-light-blue);
+  border:2px solid var(--clr-light-blue);
+}
+
+.readStatusField{
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+
+.modal-submit{
+  display: flex;
+  justify-content: center;
+}
+
+.modal-submit input{
+  padding:0.5rem 1rem;
+  background-color: var(--clr-light-blue);
+  border:none;
+  border-radius: 0.5em;
+  color:white;
+  font-weight: 800;
+  transition: all ease 0.15s;
+  cursor: pointer;
+}
+
+.modal-submit input:hover{
+  background-color: #709cfa;
+}
+
+.form-line{
+  border:1px solid #b9b9b978;
+  margin-bottom: 0.5rem;
 }
