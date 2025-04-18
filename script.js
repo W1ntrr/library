@@ -2,6 +2,7 @@ const modal = document.getElementById('addBookModal');
 const form = document.querySelector('.bookForm');
 const addButton = document.querySelector('.library__add-button');
 const closeForm = document.querySelector('.close-form');
+const bookCards = document.querySelector('.book-card__actions');
 const libraryList = document.querySelector('.library__book-list');
 
 // stores newly created book objects
@@ -63,10 +64,18 @@ function displayBookOnCard(book){
   const readButton = document.createElement('button');
   readButton.classList.add('book-card__read-button');
   readButton.textContent = book.read ? 'Not Read' : 'Read';
-  readButton.addEventListener('click',() =>{
-    console.log('clicked');
-    book.toggleReadStatus();
-    readButton.textContent = book.read ? 'Not Read' : 'Read';
+
+  libraryList.addEventListener('click', e =>{
+    if(e.target.matches('.book-card__read-button')){
+      const card = e.target.closest('.book-card');
+      const bookId = card.dataset.id;
+      const book = myLibrary.find(b => b.uuid === bookId);
+      if(book){
+        book.toggleReadStatus();
+        e.target.textContent = book.read ? 'Not Read' : 'Read';
+        e.target.classList.toggle('selected');
+      }
+    }
   })
 
   const deleteButton = document.createElement('input');
@@ -96,6 +105,7 @@ function deleteBook(uuid){
     myLibrary.splice(index,1);
   }
 }
+
 
 addButton.addEventListener('click',()=>{
   modal.showModal();
