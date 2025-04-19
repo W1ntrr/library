@@ -8,7 +8,7 @@ const libraryList = document.querySelector('.library__book-list');
 // stores newly created book objects
 const myLibrary = [];
 
-function Book(title,author,pages,read){
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -16,11 +16,11 @@ function Book(title,author,pages,read){
   this.uuid = crypto.randomUUID();
 }
 
-Book.prototype.toggleReadStatus = function(){
+Book.prototype.toggleReadStatus = function () {
   this.read = !this.read;
-}
+};
 
-form.addEventListener('submit',(e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   addBookToLibrary(
@@ -31,19 +31,19 @@ form.addEventListener('submit',(e) => {
   );
   modal.close();
   form.reset();
-})
+});
 
-function addBookToLibrary(title,author,pages,read){
-  const newBook = new Book(title,author,pages,read);
+function addBookToLibrary(title, author, pages, read) {
+  const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
   displayBookOnCard(newBook);
 }
 
-function displayBookOnCard(book){
+function displayBookOnCard(book) {
   const card = document.createElement('div');
   card.classList.add('book-card');
   card.dataset.id = book.uuid;
-  
+
   const bookImage = document.createElement('div');
   bookImage.classList.add('book-card__image');
 
@@ -64,28 +64,33 @@ function displayBookOnCard(book){
   const readButton = document.createElement('button');
   readButton.classList.add('book-card__read-button');
   readButton.textContent = book.read ? 'Not Read' : 'Read';
+  readButton.classList.toggle('selected', book.read);
 
-  libraryList.addEventListener('click', e =>{
-    if(e.target.matches('.book-card__read-button')){
-      const card = e.target.closest('.book-card');
-      const bookId = card.dataset.id;
-      const book = myLibrary.find(b => b.uuid === bookId);
-      if(book){
+  if (!libraryList.hasClickListener) {
+    libraryList.addEventListener('click', (e) => {
+      if (e.target.matches('.book-card__read-button')) {
+        const card = e.target.closest('.book-card');
+        const bookId = card.dataset.id;
+        const book = myLibrary.find((b) => b.uuid === bookId);
+        if (!book) return;
+
         book.toggleReadStatus();
+
         e.target.textContent = book.read ? 'Not Read' : 'Read';
-        e.target.classList.toggle('selected');
+        e.target.classList.toggle('selected', book.read);
       }
-    }
-  })
+    });
+    libraryList.hasClickListener = true;
+  }
 
   const deleteButton = document.createElement('input');
   deleteButton.classList.add('book-card__delete-button');
-  deleteButton.type = "image";
-  deleteButton.src = "assets/trash-solid.svg"
+  deleteButton.type = 'image';
+  deleteButton.src = 'assets/trash-solid.svg';
   deleteButton.addEventListener('click', () => {
     deleteBook(book.uuid);
     card.remove();
-  })
+  });
 
   card.appendChild(bookImage);
   card.appendChild(bookDetails);
@@ -99,21 +104,20 @@ function displayBookOnCard(book){
   libraryList.appendChild(card);
 }
 
-function deleteBook(uuid){
+function deleteBook(uuid) {
   const index = myLibrary.findIndex((book) => book.uuid === uuid);
-  if(index !== -1){
-    myLibrary.splice(index,1);
+  if (index !== -1) {
+    myLibrary.splice(index, 1);
   }
 }
 
-
-addButton.addEventListener('click',()=>{
+addButton.addEventListener('click', () => {
   modal.showModal();
-})
+});
 
-closeForm.addEventListener('click',()=>{
+closeForm.addEventListener('click', () => {
   modal.close();
-})
+});
 
 // Demo Books
-addBookToLibrary('Great Gatsby', 'F. Scott Fitzgerald',208,false);
+addBookToLibrary('Great Gatsby', 'F. Scott Fitzgerald', 208, false);
